@@ -1,0 +1,15 @@
+Post http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "password"
+}
+###
+Get http://localhost:3000/protected
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzgwNDYyNjksInVzZXJuYW1lIjoiYWRtaW4ifQ.CgfNFM_WSCglgOx24wDhye1seGVcleVTFmGtQpsqML4
+
+{
+
+}
