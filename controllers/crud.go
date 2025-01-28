@@ -40,8 +40,7 @@ func GetUsers(c *fiber.Ctx, db *sql.DB) error {
 // Handler to create a new user
 func CreateUser(c *fiber.Ctx, db *sql.DB) error {
 	type User struct {
-		Name string `json:"name"`
-		Age  int    `json:"age"`
+		User_id string `json:"user_id"`
 	}
 
 	var user User
@@ -49,7 +48,7 @@ func CreateUser(c *fiber.Ctx, db *sql.DB) error {
 		return c.Status(400).JSON(fiber.Map{"error": "Invalid request body"})
 	}
 
-	_, err := db.Exec("INSERT INTO users (name, age) VALUES (?, ?)", user.Name, user.Age)
+	_, err := db.Exec("INSERT INTO USERS (user_id) VALUES (?)", user.User_id)
 	if err != nil {
 		return c.Status(500).JSON(fiber.Map{"error": "Failed to create user"})
 	}

@@ -57,5 +57,8 @@ func main() {
 		return controllers.GetUsers(c, db)
 	})
 
+	app.Post("/new_user", func(c *fiber.Ctx) error {
+		return controllers.CreateUser(c, db)
+	})
 	app.Listen(":3000")
 }
